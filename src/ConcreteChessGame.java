@@ -230,6 +230,7 @@ public class ConcreteChessGame implements ChessGame {
         if (chessComponent.canMoveTo().contains(new ChessboardPoint(targetX, targetY))) {
             chessComponents[targetX][targetY] = chessComponent;
             chessComponents[sourceX][sourceY] = new EmptySlotComponent('_');
+            currentPlayer = (currentPlayer == ChessColor.WHITE ? ChessColor.BLACK : ChessColor.WHITE);
             return true;
         }
         return false;
