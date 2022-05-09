@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class ChessboardPoint {
     private int x;
     private int y;
@@ -27,7 +29,29 @@ public class ChessboardPoint {
     public int getY() {
         return y;
     }
-
+    
+    /**
+     * should design
+     * @param o other chess
+     * @return whether this chess is the same as other chess
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        ChessboardPoint that = (ChessboardPoint) o;
+        return x == that.x && y == that.y;
+    }
+    
+    /**
+     * should design
+     * @return the hash code of this chess
+     */
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
+    }
+    
     /**
      * should design
      * @return the location of this chess
